@@ -35,5 +35,6 @@ jobs:
           heroku_email: "niila.siilasjoki@gmail.com"
           healthcheck: "https://powerful-plateau-78098.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
 
         
