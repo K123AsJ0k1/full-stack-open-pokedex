@@ -30,8 +30,8 @@ jobs:
       - name: heroku deployment
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku-api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: powerful-plateau-78098
-          heroku_email: niila.siilasjoki@gmail.com
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "powerful-plateau-78098"
+          heroku_email: "niila.siilasjoki@gmail.com"
 
         
