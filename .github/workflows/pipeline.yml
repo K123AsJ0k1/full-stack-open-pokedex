@@ -33,5 +33,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "powerful-plateau-78098"
           heroku_email: "niila.siilasjoki@gmail.com"
+          healthcheck: "https://powerful-plateau-78098.herokuapp.com/health"
+          checkstring: "ok"
 
         
