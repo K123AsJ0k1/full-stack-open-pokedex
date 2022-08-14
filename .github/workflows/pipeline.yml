@@ -10,6 +10,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -32,6 +33,7 @@ jobs:
           wait-on: http://localhost:5000/
       - name: heroku deployment
         uses: akhileshns/heroku-deploy@v3.12.12
+        if: ${{ !contains(join(github.event.commits.*.message), '#skip') }}
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "powerful-plateau-78098"
@@ -39,5 +41,16 @@ jobs:
           healthcheck: "https://powerful-plateau-78098.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
-
-        
+  tag_release:
+    if: ${{ (github.event_name == 'push') && !contains(join(github.event.commits.*.message), '#skip') }}
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
