@@ -46,14 +46,18 @@ jobs:
         if: success()
         with:
           severity: informational
-          details: to () by K123AsJ0k1
+          color: '#7CFC00'
+          description: 'to ${{ secrets.HEROKU_URL }} by K123AsJ0k1'
+          text: A new version of Pokedex deployed
           webhookurl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: build fail notification
         uses: rjstone/discord-webhook-notify@v1
         if: failure()
         with:
           severity: error
-          details: commit () by () broke the build
+          color: '#FF0000'
+          description: 'commit ${{ github.event.head_commit.url }} by ${{ github.event.head_commit.author.username }} broke the build'
+          text: Build failed
           webhookurl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     if: ${{ (github.event_name == 'push') && !contains(join(github.event.commits.*.message), '#skip') }}
