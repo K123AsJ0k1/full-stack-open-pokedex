@@ -45,7 +45,7 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
-          severity: informational
+          severity: info
           color: '#7CFC00'
           description: 'to ${{ secrets.HEROKU_URL }} by K123AsJ0k1'
           text: A new version of Pokedex deployed
