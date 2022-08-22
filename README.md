@@ -1,10 +1,8 @@
 # Full Stack open CI/CD
 
-This repository is used for the CI/CD module of the Full stack open course
+This repository is used for the CI/CD module of the Full stack open course (11.1-11.19).
 
-Fork the repository to complete course exercises
-
-## Link to the own pipeline repo
+## Link to the self made pipeline repo (11.20-11.21)
 
 ![fso-CICD-bloglist](https://github.com/K123AsJ0k1/fso-CICD-bloglist)
 
