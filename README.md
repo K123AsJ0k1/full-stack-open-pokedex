@@ -4,6 +4,10 @@ This repository is used for the CI/CD module of the Full stack open course
 
 Fork the repository to complete course exercises
 
+## Link to the own pipeline repo
+
+![fso-CICD-bloglist](https://github.com/K123AsJ0k1/fso-CICD-bloglist)
+
 ## Commands
 
 Start by running `npm install` inside the project folder
